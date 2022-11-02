@@ -1,0 +1,9 @@
+{
+	"name": "factorygrupo4",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f464b16d-f2cc-4a85-9718-4d38e03efa91",
+		"tenantId": "50a68648-8a2a-489c-b745-643d4d86d1e3"
+	}
+}
