@@ -88,7 +88,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SQL_Table",
+									"referenceName": "SQLTable",
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
