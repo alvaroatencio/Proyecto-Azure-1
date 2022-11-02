@@ -46,7 +46,7 @@
 								"partitionOption": "None"
 							},
 							"dataset": {
-								"referenceName": "DataSetTablas",
+								"referenceName": "DataSetTable",
 								"type": "DatasetReference",
 								"parameters": {}
 							},
@@ -152,7 +152,7 @@
 				"lastPublishTime": "2022-11-02T17:07:32Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DataSetTablas')]",
+				"[concat(variables('factoryId'), '/datasets/DataSetTable')]",
 				"[concat(variables('factoryId'), '/datasets/SQLTable')]",
 				"[concat(variables('factoryId'), '/datasets/CSVTable')]"
 			]
@@ -194,7 +194,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DataSetTablas')]",
+			"name": "[concat(parameters('factoryName'), '/DataSetTable')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
