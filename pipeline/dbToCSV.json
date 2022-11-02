@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "dbToCSV",
 	"properties": {
 		"activities": [
 			{
@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DataSetTablas",
+						"referenceName": "DataSetTable",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -88,7 +88,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SQL_Table",
+									"referenceName": "SQLTable",
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
