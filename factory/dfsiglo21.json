@@ -1,0 +1,9 @@
+{
+	"name": "dfsiglo21",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "17e163b1-a4e9-42b1-850b-f8f05d42ce0f",
+		"tenantId": "50a68648-8a2a-489c-b745-643d4d86d1e3"
+	}
+}
