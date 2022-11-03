@@ -107,8 +107,8 @@
 									"referenceName": "CSVTable",
 									"type": "DatasetReference",
 									"parameters": {
-										"FilaName": {
-											"value": "@concat(item().table_schema,'_',item().table_name,'.csv')",
+										"FileName": {
+											"value": "@concat(item().table_name,'.csv')",
 											"type": "Expression"
 										}
 									}
@@ -117,6 +117,26 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "ForEachTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"annotations": [],
