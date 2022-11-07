@@ -1,12 +1,12 @@
 # Databricks notebook source
 #variables para conectar al storage/datalake    
 bstorage='mystorage1342'
-containerbs='container1'
-accesskeybs='zvllTfFrSxekrqG65lFftmgNsu2gW0+84CL4t9rvT3vqdCm5TJg0qkkeyGq7pKBsr7JISfKqDdU0+ASthRVqMg=='
+containerbs='input'
+accesskeybs='NMlrgoLr5QzzE9FrQ0ooV0tpHJ6NUHmSZvDM+XbcT5r5lEDT50CzzQ38fll0mnben0iAFt8i2SuT+AStEexswA=='
 
 datalake='mydatalake1342'
-containerdl='container1234'
-accesskeydl='QOaF+lziZ178xk5QNXLBW4tAtpwKsAdC3abNB+Vq2nUp4BDCPRMx/yny2hY71nh190QTisvRMzs2+AStRzvvZQ=='
+containerdl='output'
+accesskeydl='Vgxcn811yBgeEe/LwFCTmNCg439i0RXl5BR9bYDfXNiCOffmeDe5qxZ3ETjOpPY72lkfpOgGT2be+ASthB5zWQ=='
 
 
 
