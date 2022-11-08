@@ -10,7 +10,7 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1",
-					"description": "prueda de config de github 2"
+					"description": "Importa la tabla Categoria"
 				},
 				{
 					"dataset": {
