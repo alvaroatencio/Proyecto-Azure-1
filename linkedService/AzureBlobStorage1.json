@@ -6,7 +6,7 @@
 		"type": "AzureBlobStorage",
 		"typeProperties": {
 			"connectionString": "DefaultEndpointsProtocol=https;AccountName=storagesiglo21;EndpointSuffix=core.windows.net;",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEYxQUZDNTk1LTNFM0YtNDkxMC1BNUUyLUM0N0ExODc1MzgyQl9jNzlmOTZhMS0zZmEzLTQzOTUtOTJiZi01NTFiNzBiYjJkNWQiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDVGQzJBQzhCLTk5N0UtNDFDRi1BMDZGLTg5RjUwMjUyRjMxOF9hZmQ1ZjNhMC1hMzJmLTQyY2QtODI3Ny04NzA0MTg3ZmZjZTciDQp9"
 		}
 	}
 }
