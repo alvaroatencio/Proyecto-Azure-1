@@ -8,6 +8,9 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/5b3af01b-6743-49a6-8e13-b4ad5760cdcb/resourceGroups/RgAlvaroatenciop95/providers/Microsoft.Storage/storageAccounts/storagealvaroatencio"
+		},
 		"containerUri": {
 			"value": ""
 		},
