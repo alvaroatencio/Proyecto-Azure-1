@@ -139,10 +139,6 @@
 				"userProperties": [],
 				"typeProperties": {
 					"notebookPath": "/Users/alvaroatenciop95@21.edu.ar/TransformacionyMigracion"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricks1",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],
