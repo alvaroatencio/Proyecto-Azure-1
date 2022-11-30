@@ -34,7 +34,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/copy')]",
+			"name": "[concat(parameters('factoryName'), '/jsonInputs')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -57,7 +57,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/paste')]",
+			"name": "[concat(parameters('factoryName'), '/jsonOutput')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -138,14 +138,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "copy",
+								"referenceName": "jsonInputs",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "paste",
+								"referenceName": "jsonOutput",
 								"type": "DatasetReference",
 								"parameters": {
 									"FileName": "salida.json"
@@ -161,8 +161,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/copy')]",
-				"[concat(variables('factoryId'), '/datasets/paste')]"
+				"[concat(variables('factoryId'), '/datasets/jsonInputs')]",
+				"[concat(variables('factoryId'), '/datasets/jsonOutput')]"
 			]
 		},
 		{
@@ -171,7 +171,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
