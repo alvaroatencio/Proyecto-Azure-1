@@ -1,0 +1,25 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "mergejson",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/",
+			"blobPathEndsWith": "10.json",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/5b3af01b-6743-49a6-8e13-b4ad5760cdcb/resourceGroups/RgAlvaroatenciop95/providers/Microsoft.Storage/storageAccounts/storagealvaroatencio",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
