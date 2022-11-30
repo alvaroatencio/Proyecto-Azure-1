@@ -11,7 +11,7 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
-		"trigger1_properties_typeProperties_scope": {
+		"BlobTrigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/5b3af01b-6743-49a6-8e13-b4ad5760cdcb/resourceGroups/RgAlvaroatenciop95/providers/Microsoft.Storage/storageAccounts/storagealvaroatencio"
 		},
@@ -45,8 +45,8 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"trigger1_properties_typeProperties_scope": {
-						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					"BlobTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('BlobTrigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
