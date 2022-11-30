@@ -1,9 +1,0 @@
-{
-	"name": "DataSetTable",
-	"properties": {
-		"annotations": [],
-		"type": "AzureSqlTable",
-		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
-}
