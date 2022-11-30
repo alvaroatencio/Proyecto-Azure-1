@@ -13,7 +13,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "FileName"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "JsonSource",
@@ -47,7 +51,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Json1",
+						"referenceName": "paste",
 						"type": "DatasetReference"
 					}
 				]
