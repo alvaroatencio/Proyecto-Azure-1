@@ -15,7 +15,8 @@
 				},
 				"userProperties": [
 					{
-						"name": "FileName"
+						"name": "FileName",
+						"value": "salida.json"
 					}
 				],
 				"typeProperties": {
@@ -52,7 +53,10 @@
 				"outputs": [
 					{
 						"referenceName": "paste",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "salida.json"
+						}
 					}
 				]
 			}
