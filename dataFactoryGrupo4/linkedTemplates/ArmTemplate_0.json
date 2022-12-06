@@ -80,20 +80,7 @@
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
+				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
@@ -122,7 +109,7 @@
 							"value": "@dataset().fileName",
 							"type": "Expression"
 						},
-						"fileSystem": "jsonproductos"
+						"fileSystem": "jsonoutput"
 					}
 				},
 				"schema": {}
