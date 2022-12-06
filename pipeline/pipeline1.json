@@ -46,7 +46,10 @@
 				"outputs": [
 					{
 						"referenceName": "Json1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": "salidaprod.json"
+						}
 					}
 				]
 			}

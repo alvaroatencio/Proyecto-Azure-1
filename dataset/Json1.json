@@ -7,8 +7,7 @@
 		},
 		"parameters": {
 			"fileName": {
-				"type": "string",
-				"defaultValue": "salidaprod.json"
+				"type": "string"
 			}
 		},
 		"annotations": [],
