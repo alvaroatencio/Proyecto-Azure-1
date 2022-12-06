@@ -1,0 +1,9 @@
+{
+	"name": "dataFactoryGrupo4",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7c007230-de6e-4409-8892-b370b0dd1e7f",
+		"tenantId": "50a68648-8a2a-489c-b745-643d4d86d1e3"
+	}
+}
