@@ -259,7 +259,8 @@
 				},
 				"parameters": {
 					"name": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "output.json"
 					}
 				},
 				"annotations": [],
@@ -267,6 +268,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().name",
+							"type": "Expression"
+						},
 						"container": "output"
 					}
 				},
