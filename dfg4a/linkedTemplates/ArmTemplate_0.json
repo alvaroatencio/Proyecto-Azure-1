@@ -22,6 +22,10 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://datalake0928grupo4.dfs.core.windows.net/"
+		},
+		"triggerBlob_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/5b3af01b-6743-49a6-8e13-b4ad5760cdcb/resourceGroups/RgAlvaroatenciop95/providers/Microsoft.Storage/storageAccounts/storg4"
 		}
 	},
 	"variables": {
@@ -105,11 +109,51 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "10.json",
+						"container": "input"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"Cod_Producto": {
+							"type": "integer"
+						},
+						"Producto": {
+							"type": "string"
+						},
+						"Cod_SubCategoria": {
+							"type": "integer"
+						},
+						"Color": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"fileName": {
+					"name": {
 						"type": "string"
 					}
 				},
@@ -117,18 +161,14 @@
 				"type": "Json",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().fileName",
-							"type": "Expression"
-						},
-						"fileSystem": "jsonoutput"
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
 					}
 				},
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{
@@ -323,14 +363,20 @@
 						"userProperties": [],
 						"typeProperties": {
 							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
+								"type": "JsonSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "JsonReadSettings"
+								}
 							},
 							"sink": {
 								"type": "JsonSink",
 								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
+									"type": "AzureBlobStorageWriteSettings"
 								},
 								"formatSettings": {
 									"type": "JsonWriteSettings"
@@ -340,17 +386,17 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "dboProducto",
+								"referenceName": "Json1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "Json1",
+								"referenceName": "Json2",
 								"type": "DatasetReference",
 								"parameters": {
-									"fileName": "salidaprod.json"
+									"name": "hola.json"
 								}
 							}
 						]
@@ -361,11 +407,72 @@
 					"cancelAfter": {}
 				},
 				"annotations": [],
-				"lastPublishTime": "2022-12-06T15:06:33Z"
+				"lastPublishTime": "2022-12-12T14:07:31Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/dboProducto')]",
-				"[concat(variables('factoryId'), '/datasets/Json1')]"
+				"[concat(variables('factoryId'), '/datasets/Json1')]",
+				"[concat(variables('factoryId'), '/datasets/Json2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2022-12-12T14:12:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/triggerBlob')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/input/blobs/",
+					"blobPathEndsWith": "10.json",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('triggerBlob_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
 		}
 	]
