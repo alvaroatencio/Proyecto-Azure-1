@@ -2,27 +2,35 @@
 	"name": "Json1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"fileName": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().fileName",
-					"type": "Expression"
-				},
-				"fileSystem": "jsonoutput"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "10.json",
+				"container": "input"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Cod_Producto": {
+					"type": "integer"
+				},
+				"Producto": {
+					"type": "string"
+				},
+				"Cod_SubCategoria": {
+					"type": "integer"
+				},
+				"Color": {
+					"type": "string"
+				}
+			}
+		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

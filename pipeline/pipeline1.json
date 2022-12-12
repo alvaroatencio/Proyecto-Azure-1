@@ -16,14 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
 					},
 					"sink": {
 						"type": "JsonSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "JsonWriteSettings"
@@ -33,23 +39,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dboProducto",
+						"referenceName": "Json1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Json1",
+						"referenceName": "Json2",
 						"type": "DatasetReference",
 						"parameters": {
-							"fileName": "salidaprod.json"
+							"name": "hola.json"
 						}
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2022-12-06T15:06:33Z"
+		"lastPublishTime": "2022-12-12T14:07:31Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
